@@ -5,12 +5,16 @@
         <ion-icon slot="icon-only" name="add"></ion-icon>
       </ion-button>
     </ion-buttons>
-    <ion-title>Tasks List</ion-title>
+    <ion-title>Products</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content *ngIf="items" class="list-mini-content" padding>
-  <div *ngIf="items.length > 0" class="list-mini">
+<ion-content *ngIf="items" class="list-mini-content">
+
+
+<!-- Old -->
+
+  <!-- <div *ngIf="items.length > 0" class="list-mini">
     <ion-list>
       <ion-item *ngFor="let item of items" [routerLink]="['/details', item.payload.doc.id]">
         <ion-thumbnail slot="start">
@@ -23,8 +27,41 @@
   </div>
   <div *ngIf="items.length == 0" class="empty-list">
     Please create your first task.
-  </div>
+  </div> -->
+
+
+<!-- New -->
+<ion-grid>
+    <ion-row>
+        <ion-col size="6" *ngFor="let item of items" [routerLink]="['/details', item.payload.doc.id]">
+      
+  <div *ngIf="items.length > 0" class="list-mini">
+      <ion-card >
+        <img [src]="item.payload.doc.data().image">
+      
+          <ion-card-header>
+            <!-- <ion-card-subtitle>Card Subtitle</ion-card-subtitle> -->
+            <ion-card-title>{{item.payload.doc.data().title}}</ion-card-title>
+          </ion-card-header>
+        
+          <ion-card-content>
+              {{item.payload.doc.data().description}}
+          </ion-card-content>
+        </ion-card>
+      </div>
+
+        </ion-col>
+    </ion-row>
+</ion-grid>
+
+
 </ion-content>
+
+
+
+
+
+
 <ion-footer (click)="logout()">
   <ion-toolbar color="medium">
     <ion-title>Log out</ion-title>
