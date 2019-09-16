@@ -57,7 +57,7 @@ export class DetailsPage implements OnInit {
     this.firebaseService.updateTask(this.item.id,data)
     .then(
       res => {
-        this.router.navigate(["/home"]);
+        this.router.navigate(["/products"]);
       }
     )
   }
@@ -79,7 +79,7 @@ export class DetailsPage implements OnInit {
             this.firebaseService.deleteTask(this.item.id)
             .then(
               res => {
-                this.router.navigate(["/home"]);
+                this.router.navigate(["/products"]);
               },
               err => console.log(err)
             )

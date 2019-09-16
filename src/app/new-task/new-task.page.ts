@@ -48,7 +48,7 @@ export class NewTaskPage implements OnInit {
     this.firebaseService.createTask(data)
     .then(
       res => {
-        this.router.navigate(["/home"]);
+        this.router.navigate(["/products"]);
       }
     )
   }

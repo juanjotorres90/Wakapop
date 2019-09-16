@@ -5,15 +5,15 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { IonicModule } from '@ionic/angular';
 
-import { HomePage } from './home.page';
-import { HomeResolver } from './home.resolver';
+import { ProductsPage } from './products.page';
+import { ProductsResolver } from './products.resolver';
 
 const routes: Routes = [
   {
     path: '',
-    component: HomePage,
+    component: ProductsPage,
     resolve: {
-      data: HomeResolver
+      data: ProductsResolver
     }
   }
 ];
@@ -26,9 +26,9 @@ const routes: Routes = [
     IonicModule,
     RouterModule.forChild(routes)
   ],
-  declarations: [HomePage],
+  declarations: [ProductsPage],
   providers: [
-    HomeResolver
+    ProductsResolver
   ]
 })
-export class HomePageModule {}
+export class ProductsPageModule {}
