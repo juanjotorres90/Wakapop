@@ -12,7 +12,7 @@
 <ion-content *ngIf="items" class="list-mini-content">
 
 
-<!-- Old -->
+  <!-- Old -->
 
   <!-- <div *ngIf="items.length > 0" class="list-mini">
     <ion-list>
@@ -30,29 +30,29 @@
   </div> -->
 
 
-<!-- New -->
-<ion-grid>
+  <!-- New -->
+  <ion-grid>
     <ion-row>
-        <ion-col size="6" *ngFor="let item of items" [routerLink]="['/details', item.payload.doc.id]">
-      
-  <div *ngIf="items.length > 0" class="list-mini">
-      <ion-card >
-        <img [src]="item.payload.doc.data().image">
-      
-          <ion-card-header>
-            <!-- <ion-card-subtitle>Card Subtitle</ion-card-subtitle> -->
-            <ion-card-title>{{item.payload.doc.data().title}}</ion-card-title>
-          </ion-card-header>
-        
-          <ion-card-content>
-              {{item.payload.doc.data().description}}
-          </ion-card-content>
-        </ion-card>
-      </div>
+      <ion-col size="6" *ngFor="let item of items" [routerLink]="['/details', item.payload.doc.id]">
 
-        </ion-col>
+        <div *ngIf="items.length > 0" class="list-mini">
+          <ion-card>
+            <img [src]="item.payload.doc.data().image">
+
+            <ion-card-header>
+              <!-- <ion-card-subtitle>Card Subtitle</ion-card-subtitle> -->
+              <ion-card-title>{{item.payload.doc.data().title}}</ion-card-title>
+            </ion-card-header>
+
+            <ion-card-content>
+              {{item.payload.doc.data().description}}
+            </ion-card-content>
+          </ion-card>
+        </div>
+
+      </ion-col>
     </ion-row>
-</ion-grid>
+  </ion-grid>
 
 
 </ion-content>

@@ -31,4 +31,4 @@ const routes: Routes = [
     ProductsResolver
   ]
 })
-export class ProductsPageModule {}
+export class ProductsPageModule { }

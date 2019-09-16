@@ -5,13 +5,15 @@
   margin-top: 40px;
   color: var(--ion-color-medium);
 }
-ion-card{
+
+ion-card {
   display: flex;
   align-items: stretch;
   flex-direction: column;
   width: 100%;
 }
 
-ion-card-content, ion-card-title {
+ion-card-content,
+ion-card-title {
   flex: 1;
 }
