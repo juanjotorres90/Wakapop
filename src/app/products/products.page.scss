@@ -6,14 +6,14 @@
   color: var(--ion-color-medium);
 }
 
-ion-card {
-  display: flex;
-  align-items: stretch;
-  flex-direction: column;
-  width: 100%;
-}
+// .last-mini {
+//   display: flex;
+//   align-items: stretch;
+//   flex-direction: column;
+//   width: 100%;
+// }
 
-ion-card-content,
-ion-card-title {
-  flex: 1;
-}
+// ion-card-content,
+// ion-card-title {
+//   flex: 0 1 auto;
+// }

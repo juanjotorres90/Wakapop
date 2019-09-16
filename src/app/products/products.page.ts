@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../services/auth.service';
 import { LoadingController } from '@ionic/angular';
 import { Router, ActivatedRoute } from '@angular/router';
+import { Product } from '../models/product';
 
 @Component({
   selector: 'app-products',
@@ -10,7 +11,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 })
 export class ProductsPage implements OnInit {
 
-  items: Array<any>;
+  products: Product[];
 
   constructor(
     public loadingCtrl: LoadingController,
@@ -34,7 +35,7 @@ export class ProductsPage implements OnInit {
     this.route.data.subscribe(routeData => {
       routeData['data'].subscribe(data => {
         loading.dismiss();
-        this.items = data;
+        this.products = data;
       })
     })
   }

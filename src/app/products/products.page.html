@@ -9,7 +9,7 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content *ngIf="items" class="list-mini-content">
+<ion-content *ngIf="products" class="list-mini-content">
 
 
   <!-- Old -->
@@ -33,19 +33,19 @@
   <!-- New -->
   <ion-grid>
     <ion-row>
-      <ion-col size="6" *ngFor="let item of items" [routerLink]="['/details', item.payload.doc.id]">
+      <ion-col size="6" *ngFor="let product of products" [routerLink]="['/details', product.payload.doc.id]">
 
-        <div *ngIf="items.length > 0" class="list-mini">
+        <div *ngIf="products.length > 0" class="list-mini">
           <ion-card>
-            <img [src]="item.payload.doc.data().image">
+            <img [src]="product.payload.doc.data().image">
 
             <ion-card-header>
               <!-- <ion-card-subtitle>Card Subtitle</ion-card-subtitle> -->
-              <ion-card-title>{{item.payload.doc.data().title}}</ion-card-title>
+              <ion-card-title>{{product.payload.doc.data().title}}</ion-card-title>
             </ion-card-header>
 
             <ion-card-content>
-              {{item.payload.doc.data().description}}
+              {{product.payload.doc.data().description}}
             </ion-card-content>
           </ion-card>
         </div>
