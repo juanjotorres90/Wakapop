@@ -29,6 +29,14 @@
       <ion-label position="floating" color="primary">Description</ion-label>
       <ion-input type="text" formControlName="description"></ion-input>
     </ion-item>
+    <ion-item>
+      <ion-label position="floating" color="primary">Category</ion-label>
+      <ion-input type="text" formControlName="category"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating" color="primary">Price</ion-label>
+      <ion-input type="text" formControlName="price"></ion-input>
+    </ion-item>
     <ion-button class="submit-button" expand="block" type="submit" [disabled]="!validations_form.valid">Save</ion-button>
   </form>
   <ion-button class="delete-button" expand="block" color="danger" (click)="delete()">Delete</ion-button>

@@ -5,6 +5,12 @@
   margin-top: 40px;
   color: var(--ion-color-medium);
 }
+ion-card {
+  text-align: center,
+}
+ion-card-subtitle {
+  margin-bottom: 10px;
+}
 
 // .last-mini {
 //   display: flex;
@@ -17,3 +23,4 @@
 // ion-card-title {
 //   flex: 0 1 auto;
 // }
+
