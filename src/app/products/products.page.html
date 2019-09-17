@@ -8,9 +8,15 @@
     <ion-title>Products</ion-title>
   </ion-toolbar>
 </ion-header>
-
+<ion-searchbar 
+mode="ios"
+showCancelButton="focus" 
+cancelButtonText="Cancelar" 
+placeholder="Encuentra tu producto"
+animated
+[(ngModel)]="searchTerm" (ionChange)="setFilteredItems()"></ion-searchbar>
 <ion-content *ngIf="products" class="list-mini-content">
-  <ion-searchbar animated></ion-searchbar>
+
 
   <!-- Old -->
 
@@ -31,11 +37,38 @@
 
 
   <!-- New -->
-  <ion-grid>
+  <ion-grid *ngIf="searchTerm == ''">
     <ion-row>
       <ion-col size="6" *ngFor="let product of products" [routerLink]="['/details', product.payload.doc.id]">
 
         <div *ngIf="products.length > 0" class="list-mini">
+          <ion-card>
+            <img [src]="product.payload.doc.data().image" onerror="this.src='./assets/imgs/default_image.jpg';">
+
+            <ion-card-header>
+              <!-- <ion-card-subtitle>Card Subtitle</ion-card-subtitle> -->
+              <ion-card-title>{{product.payload.doc.data().title}}</ion-card-title>
+            </ion-card-header>
+
+            <ion-card-content>
+              {{product.payload.doc.data().description}}
+            </ion-card-content>
+            <ion-card-subtitle>
+              {{ product.payload.doc.data().price }} €
+            </ion-card-subtitle>
+          </ion-card>
+        </div>
+
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <ion-grid *ngIf="searchTerm != ''">
+
+    <ion-row>
+      <ion-col size="6" *ngFor="let product of filteredItems" [routerLink]="['/details', product.payload.doc.id]">
+
+        <div *ngIf="filteredItems.length > 0" class="list-mini">
           <ion-card>
             <img [src]="product.payload.doc.data().image" onerror="this.src='./assets/imgs/default_image.jpg';">
 

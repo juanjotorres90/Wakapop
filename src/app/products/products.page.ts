@@ -11,7 +11,14 @@ import { Product } from '../models/product';
 })
 export class ProductsPage implements OnInit {
 
-  products: Product[];
+  // products: Product[];
+  products;
+
+  searchTerm: string = '';
+  // filteredItems: Product[] = [];
+  filteredItems = [];
+
+  filteredProducts;
 
   constructor(
     public loadingCtrl: LoadingController,
@@ -51,6 +58,24 @@ export class ProductsPage implements OnInit {
     }, err => {
       console.log(err);
     })
+  }
+
+  setFilteredItems() {
+    this.filteredItems = [];
+    console.log("Buscando: ", this.searchTerm);
+   
+    let include;
+
+    this.products.map(product => {
+      include = product.payload.doc.data().title.includes(this.searchTerm);
+      if(include == true) {
+        console.log('include!!!!', product.payload.doc.data().title);
+        this.filteredItems.push(product);
+      }
+    }
+    );
+
+    console.log('Estos son los productos filtrados', this.filteredItems);
   }
 
 }
