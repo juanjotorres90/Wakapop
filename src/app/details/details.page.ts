@@ -62,6 +62,7 @@ export class DetailsPage implements OnInit {
       image: image,
       category: value.category,
       price: value.price,
+      state: 'modified'
       // publishedDate: value.publishedDate,
       // state: value.state
     }

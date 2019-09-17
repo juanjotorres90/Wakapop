@@ -37,7 +37,7 @@
 
         <div *ngIf="products.length > 0" class="list-mini">
           <ion-card>
-            <img [src]="product.payload.doc.data().image">
+            <img [src]="product.payload.doc.data().image" onerror="this.src='./assets/imgs/default_image.jpg';">
 
             <ion-card-header>
               <!-- <ion-card-subtitle>Card Subtitle</ion-card-subtitle> -->
