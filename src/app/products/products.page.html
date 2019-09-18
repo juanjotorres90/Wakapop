@@ -39,11 +39,13 @@ animated
   <!-- New -->
   <ion-grid *ngIf="searchTerm == ''">
     <ion-row>
-      <ion-col size="6" *ngFor="let product of products" [routerLink]="['/details', product.payload.doc.id]">
+      <ion-col size="6" *ngFor="let product of products" [routerLink]="['/details', product.payload.doc.id]"
+        class="ion-margin-vertical">
 
         <div *ngIf="products.length > 0" class="list-mini">
           <ion-card>
-            <img [src]="product.payload.doc.data().image" onerror="this.src='./assets/imgs/default_image.jpg';">
+            <img [src]="product.payload.doc.data().image" onerror="this.src='./assets/imgs/default_image.jpg';"
+              class="ion-padding">
 
             <ion-card-header>
               <!-- <ion-card-subtitle>Card Subtitle</ion-card-subtitle> -->
@@ -62,40 +64,35 @@ animated
       </ion-col>
     </ion-row>
   </ion-grid>
+<ion-grid *ngIf="searchTerm != ''">
 
-  <ion-grid *ngIf="searchTerm != ''">
+  <ion-row>
+    <ion-col size="6" *ngFor="let product of filteredItems" [routerLink]="['/details', product.payload.doc.id]" class="ion-margin-vertical">
 
-    <ion-row>
-      <ion-col size="6" *ngFor="let product of filteredItems" [routerLink]="['/details', product.payload.doc.id]">
+      <div *ngIf="filteredItems.length > 0" class="list-mini">
+        <ion-card>
+          <img [src]="product.payload.doc.data().image" onerror="this.src='./assets/imgs/default_image.jpg';" class="ion-padding">
 
-        <div *ngIf="filteredItems.length > 0" class="list-mini">
-          <ion-card>
-            <img [src]="product.payload.doc.data().image" onerror="this.src='./assets/imgs/default_image.jpg';">
+          <ion-card-header>
+            <!-- <ion-card-subtitle>Card Subtitle</ion-card-subtitle> -->
+            <ion-card-title>{{product.payload.doc.data().title}}</ion-card-title>
+          </ion-card-header>
 
-            <ion-card-header>
-              <!-- <ion-card-subtitle>Card Subtitle</ion-card-subtitle> -->
-              <ion-card-title>{{product.payload.doc.data().title}}</ion-card-title>
-            </ion-card-header>
+          <ion-card-content>
+            {{product.payload.doc.data().description}}
+          </ion-card-content>
+          <ion-card-subtitle>
+            {{ product.payload.doc.data().price }} €
+          </ion-card-subtitle>
+        </ion-card>
+      </div>
 
-            <ion-card-content>
-              {{product.payload.doc.data().description}}
-            </ion-card-content>
-            <ion-card-subtitle>
-              {{ product.payload.doc.data().price }} €
-            </ion-card-subtitle>
-          </ion-card>
-        </div>
-
-      </ion-col>
-    </ion-row>
-  </ion-grid>
+    </ion-col>
+  </ion-row>
+</ion-grid>
 
 
 </ion-content>
-
-
-
-
 
 
 <ion-footer (click)="logout()">
