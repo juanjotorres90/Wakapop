@@ -11,7 +11,7 @@
   <div>
     <ion-row>
       <ion-col size="6" offset="3">
-        <img [src]="image" alt="this is the image" onerror="this.src='./assets/imgs/default_image.jpg';"/>
+        <img [src]="image" alt="this is the image" onerror="this.src='./assets/imgs/default_image.jpg';" />
       </ion-col>
     </ion-row>
     <ion-row>
@@ -37,7 +37,8 @@
       <ion-label position="floating" color="primary">Price</ion-label>
       <ion-input type="number" formControlName="price"></ion-input>
     </ion-item>
-    <ion-button class="submit-button" expand="block" type="submit" [disabled]="!validations_form.valid">Save</ion-button>
+    <ion-button class="submit-button" expand="block" type="submit" [disabled]="!validations_form.valid">Save
+    </ion-button>
   </form>
   <ion-button class="delete-button" expand="block" color="danger" (click)="delete()">Delete</ion-button>
 
